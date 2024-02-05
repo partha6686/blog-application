@@ -1,24 +1,5 @@
 <h1>Edit Article</h1>
 
-<% if @article.errors.any? %>
-    <ul>
-    <% @article.errors.full_messages.each do |error|%>
-        <li><%= error %></li>
-    <% end %>
-    </ul>
-<% end %>
-
-<%= form_with(model: @article, local: true,data: {turbo: false}) do |form|  %>
-    <%= form.label :title, "Title:" %>
-    <br />
-    <%= form.text_field :title %>
-    <br />
-    <%= form.label :desc, "Description:" %>
-    <br />
-    <%= form.text_area :desc %>
-    <br />
-    <%= form.submit %>
-
-<% end %>
+<%= render 'form' %>
 
 <%= link_to 'Go Back', articles_path  %>
