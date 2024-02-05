@@ -1,0 +1,22 @@
+<h1>Create Article</h1>
+
+<% if @article.errors.any? %>
+    <ul>
+    <% @article.errors.full_messages.each do |error|%>
+        <li><%= error %></li>
+    <% end %>
+    </ul>
+<% end %>
+
+<%= form_with scope: :article, url: articles_path, local: true, data: {turbo: false} do |form|  %>
+    <%= form.label :title, "Title:" %>
+    <br />
+    <%= form.text_field :title %>
+    <br />
+    <%= form.label :desc, "Description:" %>
+    <br />
+    <%= form.text_area :desc %>
+    <br />
+    <%= form.submit %>
+
+<% end %>
