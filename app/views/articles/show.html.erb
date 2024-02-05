@@ -4,7 +4,11 @@
 <p>
     <%= @article.desc %>
 </p>
-<span>
+<p>
     <%= 'Active' if @article.status == 0 %>
     <%= 'Inactive' if @article.status == 1 %>
-</span>
+</p>
+
+<%= link_to 'Back', articles_path  %>
+<%= link_to 'Edit', edit_article_path(@article)%>
+<%= link_to 'Delete', article_path(@article.id), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}  %>
