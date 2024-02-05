@@ -1,0 +1,10 @@
+<h1>
+<%= @article.title %>
+</h1>
+<p>
+    <%= @article.desc %>
+</p>
+<span>
+    <%= 'Active' if @article.status == 0 %>
+    <%= 'Inactive' if @article.status == 1 %>
+</span>
