@@ -5,6 +5,12 @@
     <%= @article.desc %>
 </p>
 <p>
+    Author: <%= @article.user.username if @article.user %>
+</p>
+<p>
+    Created <%= time_ago_in_words(@article.created_at) %> ago, Updated <%= time_ago_in_words(@article.updated_at) %> ago
+</p>
+<p>
     <%= 'Active' if @article.status == 0 %>
     <%= 'Inactive' if @article.status == 1 %>
 </p>
