@@ -1,10 +1,4 @@
-<% if @article.errors.any? %>
-    <ul>
-    <% @article.errors.full_messages.each do |error|%>
-        <li><%= error %></li>
-    <% end %>
-    </ul>
-<% end %>
+<%= render 'shared/error', obj: @article %>
 
 <%= form_with(model: @article, local: true,data: {turbo: false}) do |form|  %>
     <%= form.label :title, "Title:" %>

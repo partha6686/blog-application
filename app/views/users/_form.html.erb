@@ -1,0 +1,18 @@
+<%= render 'shared/error', obj: @user %>
+
+<%= form_with(model: @user, local: true,data: {turbo: false}) do |form|  %>
+    <%= form.label :username, "Username:" %>
+    <br />
+    <%= form.text_field :username %>
+    <br />
+    <%= form.label :email, "Email:" %>
+    <br />
+    <%= form.email_field :email %>
+    <br />
+    <%= form.label :password, "Password:" %>
+    <br />
+    <%= form.password_field :password %>
+    <br />
+    <br />
+    <%= form.submit "Sign up" %>
+<% end %>
