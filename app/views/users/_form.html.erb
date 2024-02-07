@@ -14,5 +14,5 @@
     <%= form.password_field :password %>
     <br />
     <br />
-    <%= form.submit "Sign up" %>
+    <%= form.submit (@user.new_record? ? "Sign up": "Edit Account") %>
 <% end %>
