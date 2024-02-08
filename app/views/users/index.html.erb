@@ -1,0 +1,30 @@
+<h1>All Users</h1>
+
+<div class="flickr_pagination">
+    <%= will_paginate @user, :container => false %>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Username</th>
+            <th>Description</th>
+            <th>Email</th>
+            <th>Num Articles</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @users.each do |item|%>
+            <tr>
+                <td><%= link_to item.username, user_path(item) %> </td>
+                <td><%= gravatar_for(item.email) %></td>
+                <td><%=item.email %></td>
+                <td><%= pluralize(item.articles.count, "article") %></td>
+                <td>
+                    <%= link_to 'View Profile', user_path(item) %>
+                    <%= link_to 'Edit Profile', edit_user_path(item)%>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

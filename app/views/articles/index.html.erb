@@ -1,5 +1,8 @@
-<h1>All articles</h1>
+<h1 class="article_heading">All articles</h1>
 
+<div class="flickr_pagination">
+    <%= will_paginate @articles, :container => false %>
+</div>
 <%= render 'article' %>
 
 
