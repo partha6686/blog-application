@@ -1,0 +1,17 @@
+<h1>LOGIN</h1>
+
+
+<%= form_with(scope: :session,url: login_path, local: true,data: {turbo: false}) do |form|  %>
+    <%= form.label :email, "Email:" %>
+    <br />
+    <%= form.email_field :email %>
+    <br />
+    <%= form.label :password, "Password:" %>
+    <br />
+    <%= form.password_field :password %>
+    <br />
+    <br />
+    <%= form.submit "Login" %>
+<% end %>
+
+<%= link_to 'Back', articles_path  %>
