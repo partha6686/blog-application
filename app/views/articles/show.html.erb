@@ -16,7 +16,7 @@
 </p>
 
 <%= link_to 'Back', articles_path  %>
-<% if is_logged_in? && @article.user==current_user %>
+<% if is_logged_in? && (@article.user==current_user || current_user.admin?) %>
     <%= link_to 'Edit', edit_article_path(@article)%>
     <%= link_to 'Delete', article_path(@article.id), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}  %>
 <% end %>

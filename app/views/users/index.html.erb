@@ -25,6 +25,9 @@
                     <% if is_logged_in? && item == current_user %>
                         <%= link_to 'Edit Profile', edit_user_path(item)%>
                     <% end %>
+                    <% if is_logged_in? && current_user.admin? %>
+                        <%= link_to 'Delete Profile', user_path(item), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+                    <% end %>
                 </td>
             </tr>
         <% end %>
