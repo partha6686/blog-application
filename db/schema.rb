@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_11_070411) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_11_121245) do
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "desc"
@@ -18,6 +18,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_11_070411) do
     t.datetime "updated_at", null: false
     t.integer "status", default: 0
     t.integer "user_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "#<ActiveRecord::ConnectionAdapters::SQLite3::TableDefinition:0x00007f0bdc1bb040>"
   end
 
   create_table "users", force: :cascade do |t|
