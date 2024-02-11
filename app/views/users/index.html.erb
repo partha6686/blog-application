@@ -22,7 +22,9 @@
                 <td><%= pluralize(item.articles.count, "article") %></td>
                 <td>
                     <%= link_to 'View Profile', user_path(item) %>
-                    <%= link_to 'Edit Profile', edit_user_path(item)%>
+                    <% if is_logged_in? && item == current_user %>
+                        <%= link_to 'Edit Profile', edit_user_path(item)%>
+                    <% end %>
                 </td>
             </tr>
         <% end %>

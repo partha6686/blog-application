@@ -15,8 +15,10 @@
                 <td><%= link_to item.user.username, user_path(item.user) if item.user %></td>
                 <td>
                     <%= link_to 'Show', article_path(item) %>
-                    <%= link_to 'Edit', edit_article_path(item)%>
-                    <%= link_to 'Delete', article_path(item), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}  %>
+                    <% if is_logged_in? && item.user==current_user %>
+                        <%= link_to 'Edit', edit_article_path(item)%>
+                        <%= link_to 'Delete', article_path(item), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}  %>
+                    <% end %>
                 </td>
             </tr>
         <% end %>
