@@ -18,6 +18,7 @@ class ArticlesController < ApplicationController
     end
 
     def create
+        binding.break
         @article = Article.new(article_params)
         @article.user = current_user
         # render plain: @article.inspect
@@ -48,7 +49,7 @@ class ArticlesController < ApplicationController
         @article = Article.find(params[:id])
     end
     def article_params
-        params.require(:article).permit(:title, :desc)
+        params.require(:article).permit(:title, :desc, category_ids: [])
     end
     def require_same_user
         if current_user != @article.user && !current_user.admin? 

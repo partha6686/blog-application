@@ -9,6 +9,12 @@
     <br />
     <%= form.text_area :desc %>
     <br />
+    <%= form.label :category, "Categories:" %>
+    <br />
+    <%= form.collection_select :category_ids, Category.order(:name), :id, :name, {prompt: "Please select a Category"}, {multiple: true} %>
+    <br />
+    <br />
+
     <%= form.submit %>
 
 <% end %>
