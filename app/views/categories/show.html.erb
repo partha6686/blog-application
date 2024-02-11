@@ -1,3 +1,14 @@
 <h1>
 Category: <%= @category.name %>
 </h1>
+
+<% if is_logged_in? && current_user.admin? %>
+    <%= link_to 'Edit Category', edit_category_path(@category)%>
+<% end %>
+
+<h3>Articles</h3>
+
+<div class="flickr_pagination">
+    <%= will_paginate @articles, :container => false %>
+</div>
+<%= render 'articles/article' %>
