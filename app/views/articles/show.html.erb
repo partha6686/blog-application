@@ -4,6 +4,11 @@
 <p>
     <%= @article.desc %>
 </p>
+<div>
+<% if @article.categories.any? %>
+   Category:  <%= render @article.categories  %>
+<% end %>
+</div>
 <p>
     Author: <%= @article.user.username if @article.user %>
 </p>
