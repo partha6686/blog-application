@@ -4,6 +4,7 @@
 
 <% if is_logged_in? && @user == current_user %>
     <%= link_to 'Edit Profile', edit_user_path(@user)%>
+    <%= link_to 'Delete Profile', user_path(@user), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
 <% end %>
 
 <h3>Articles</h3>
